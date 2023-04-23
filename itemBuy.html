@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>ログインフォーム</title>
+    <title>アイテム購入フォーム</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -24,26 +24,22 @@
         <!--フォーム-->
         <form name="login_form">
             <center>
-                <h1 class="contact-title">ログイン</h1>
-                <p>ID, Passwordご入力の上, 「認証」ボタンをクリックしてください.</p>
+                <h1 class="contact-title">アイテム購入</h1>
             </center>
             <div>
 
                 <center>
                     <div>
-                        <input type="id" name="id" placeholder="ID">
+                        <p> <span id="span1"></span></p>
                     </div>
                     <br>
                     <div>
-                        <input type="password" name="pass" placeholder="Password">
-                    </div>
-                    <div>
-                        <p> <span id="span1"></span></p>
+                        <input type="id" name="kosu" placeholder="個数">
                     </div>
                 </center>
 
             </div>
-            <button type="button" onClick="nextPage();">認証</button>
+            <button type="button" onClick="newuser();">購入</button>
         </form>
     </div>
 </body>

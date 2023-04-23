@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>ログインフォーム</title>
+    <title>ユーザー登録フォーム</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -24,18 +24,18 @@
         <!--フォーム-->
         <form name="login_form">
             <center>
-                <h1 class="contact-title">ログイン</h1>
-                <p>ID, Passwordご入力の上, 「認証」ボタンをクリックしてください.</p>
+                <h1 class="contact-title">ユーザー登録</h1>
+                <p>氏名、メールアドレスをご入力の上, 「登録」ボタンをクリックしてください.</p>
             </center>
             <div>
 
                 <center>
                     <div>
-                        <input type="id" name="id" placeholder="ID">
+                        <input type="id" name="name" placeholder="氏名">
                     </div>
                     <br>
                     <div>
-                        <input type="password" name="pass" placeholder="Password">
+                        <input type="id" name="email" placeholder="email">
                     </div>
                     <div>
                         <p> <span id="span1"></span></p>
@@ -43,7 +43,7 @@
                 </center>
 
             </div>
-            <button type="button" onClick="nextPage();">認証</button>
+            <button type="button" onClick="newuser();">登録</button>
         </form>
     </div>
 </body>
