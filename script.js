@@ -30,13 +30,10 @@ function nextPage() {
   } else {
     console.log("割り当てなし");
   }
-  //console.log(loginArray);
   //alldata.jsのallUser配列と照らし合わせて、ユーザー名パスワードが正しければ次の画面へ
   for (const userArray of loginArray) {
-    //console.log(userArray["userNumber"]+userArray["passwaord"]);
     if (input1 === userArray["userNumber"] && inputPass === userArray["passwaord"]) {
       document.getElementById("span1").textContent = "ログイン成功";
-      //location.href = nextUrl;
       return location.href = nextUrl;
     }
     //合致するユーザーがなければログイン失敗
@@ -44,51 +41,21 @@ function nextPage() {
     }
   }
 
-//在庫一覧
-function stockOutput() {
-  let stockList = '<tr><th>商品</th><th>在庫</th><th>イメージ</th></tr>';
-  for (let i=0; i < allItem.length; i++ ) {
-    if (allItem[i]["Stock"] < 10) {
-      console.log(allItem[i]["Stock"]);
-      stockList += '<tr><td id ="stockRed">＊' + allItem[i]["Name"] + '</td><td id ="stockRed">' + allItem[i]["Stock"] +'</td><td id ="stockRed"><img src="' + allItem[i]["Image"] +'" class ="ItemList"></td></tr>';     
-    } else {
-      stockList += '<tr><td>'+ allItem[i]["Name"] + '</td><td>' + allItem[i]["Stock"] +'</td><td><img src="' + allItem[i]["Image"] +'" class ="ItemList"></td></tr>';
-    }
-    
-  }
-  console.log(stockList);
-  document.getElementById('item-table').innerHTML = stockList;
-}
-
-function saleOutput() {
-  let saleList = '';
-  for (let i=0; i < allItem.length; i++ ) {
-    if (allItem[i]["Stock"] !== 0) {
-        if ((i + 1 )% 3 === 0) {
-        //console.log("yes");
-        saleList += '<th id="' + allItem[i]["Nunber"] + '">品名：'+ allItem[i]["Name"]+'<br>価格：' + allItem[i]["Price"] + '<br><img src="' + allItem[i]["Image"] +'" class ="sale"></th></tr>';
-        } else {
-        saleList += '<th id="' + allItem[i]["Nunber"] + '">品名：'+ allItem[i]["Name"]+'<br>価格：' + allItem[i]["Price"] + '<br><img src="' + allItem[i]["Image"] +'" class ="sale"></th>';
-        }
-    }
-  }
-  document.getElementById('sale-table').innerHTML = saleList;
-}
-
-const myElement = document.getElementById("0001");
-console.log(myElement)
-myElement.addEventListener("click",itemTarget());
-
+//ユーザー登録画面の登録ボタンの処理
 function newuser() {
   alert("メールで仮パスワードを送信しました");
   return location.href = "logincliant.html";
 }
 
-function itemTarget() {
-  return location.href = "itemuBuy.html";
+//商品購入フォームの購入ボタンの処理
+function newbuy() {
+ let ko = Number(document.getElementById('kosu').value);
+ if(ko === 0) {
+  alert("個数が入っておりません");
+ } else {
+  alert("購入を受付しました。ありがとうございます");
+  return location.href = "sale.html";
+ }
 }
         
-
-
-
 

@@ -34,6 +34,10 @@ img.sale {
     height: 50px;
     }
 
+#min{
+    font-size:xx-small;
+}
+
 #sale-table {
     border:  1;
     margin: auto;
@@ -48,7 +52,7 @@ img.sale {
     background-color: white;
     }
 
-#item--table th {
+#item-table th {
     width: 350px;
     padding: 10px 10px;
     border-color: rgb(145, 141, 141);
@@ -62,12 +66,18 @@ img.sale {
     }
 
 #sales-table {
-    width: 600px;
+    width: 300px;
     }
 
 #itemButton-table {
     width: 300px;
     }
+
+#buy-table {
+    width: 300px;
+    border:  1;
+    margin: auto;
+}
 
 #stockRed {
     background-color: red;
@@ -7979,7 +7989,8 @@ button.close {
     margin: 1px;
     text-indent: -999px;
     cursor: pointer;
-    background-color: #000\9;
+    background-color: #000\9
+    ;
     background-color: rgba(0, 0, 0, 0);
     border: 1px solid #fff;
     border-radius: 10px

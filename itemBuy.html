@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>アイテム購入フォーム</title>
+    <title>商品購入フォーム</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -34,12 +34,38 @@
                     </div>
                     <br>
                     <div>
-                        <input type="id" name="kosu" placeholder="個数">
+                        <input type="id" id="kosu" placeholder="個数" value=0>
                     </div>
                 </center>
 
             </div>
-            <button type="button" onClick="newuser();">購入</button>
+            <table id="buy-table"><tr><td><button type="button" onClick="newbuy();">購入</button></td>
+            <td><button type="button" onclick="history.back()">戻る</button></td></tr>
+            </table>
+            <script type="text/javascript">
+                window.onload = function() {
+                // URLを取得
+                const url = new URL(window.location.href);
+                // URLSearchParamsオブジェクトを取得
+                const params = url.searchParams;
+                // consoleに受け取ったパラメータを出力
+                // パラメータから「username」を取得
+                const buynum = params.get("num");
+                // URLから受信した商品Numberの内容を表示
+                let saleObj = {};
+                for (let num of allItem) {
+                    if (num["Number"] === buynum) {
+                        saleObj = num;
+                    }
+                }
+                //sale.htmlから購入する商品の情報を取得
+                let saledata = '<p>品名：'+ saleObj["Name"]+'<br>価格：' + saleObj["Price"] + '<br><img src="' + saleObj["Image"] +'" class ="sale"></p>';
+                // IDを使ってspan要素を取得する
+                target = document.getElementById("span1");
+                // 購入する商品の情報を表示
+                target.innerHTML = saledata;
+                }
+            </script>
         </form>
     </div>
 </body>

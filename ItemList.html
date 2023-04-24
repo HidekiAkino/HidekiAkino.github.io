@@ -8,8 +8,7 @@
 </head>
 
 <header>
-    <center>
-        <h1>お買い物サイト</h1>
+    <center><h1>管理者画面</h1>
     </center>
     <script type="text/javascript" src="alldata.js"></script>
     <script type="text/javascript" src="script.js"></script>
@@ -29,15 +28,30 @@
             </center>
             <div>
                 <table id="itemButton-table">
-                    <tr><td><button type="button" onclick="stockOutput()">表示</button></td>
+                    <tr><td><button type="button" onclick="location.reload()">更新</button></td>
                     <td><button type="button" onclick="history.back()">戻る</button></td></tr>
+                </table>
             </div>
             <div>
-                <table id="item-table" border="1" width="600">
+                <table id="itemlist-table" border="1" width="600">
                     
                 </table>
             </div>
-            
+            <script type="text/javascript">
+                window.onload = function() {
+                    let stockList = '<tr><th>商品</th><th>在庫</th><th>イメージ</th></tr>';
+                    for (let i=0; i < allItem.length; i++ ) {
+                      if (allItem[i]["Stock"] < 10) {
+                        //console.log(allItem[i]["Stock"]);
+                        stockList += '<tr><td id ="stockRed">＊' + allItem[i]["Name"] + '</td><td id ="stockRed">' + allItem[i]["Stock"] +'</td><td id ="stockRed"><img src="' + allItem[i]["Image"] +'" class ="ItemList"></td></tr>';     
+                        } else {
+                        stockList += '<tr><td>'+ allItem[i]["Name"] + '</td><td>' + allItem[i]["Stock"] +'</td><td><img src="' + allItem[i]["Image"] +'" class ="ItemList"></td></tr>';
+                        }
+                    }
+                        //console.log(stockList);
+                    document.getElementById('itemlist-table').innerHTML = stockList;
+                }
+            </script>
         </form>
     </div>
 </body>
